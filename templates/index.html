@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Melo-Note</title>   
+</head>
+<body class="p-3 mb-2 bg-info">
+    <div class="container text-center">
+        <div class="upper_title">
+            <h1>Song Prediction</h1>
+        </div>
+        <div class="num1">
+            <form method="post" action="{{ url_for('predict') }}">
+
+                <div class="t1">
+                    <label for="age">Song Rating</label> 
+                    <input class="text-center " type="number" name="rating" required>
+                </div>
+                <div class="t2">
+                    <label for="rate">Enter Song View Count</label>
+                    <input class="text-center" type="number" name="song_view" required>
+                </div>
+                <button type="submit">Predict Song</button>
+
+            </form>
+
+            <div class="top1">
+        <h1>Song Recommendations</h1>
+    </div>
+    <div class="mid1">
+        <p>Predicted Song: {{ predicted_song }}</p>
+
+        <div class="song-info">
+                <img src="{{ url_for('static', filename=song_image) }}" alt="song_image">
+    </div>
+
+        </div>
+    </div>
+</body>
+</html>
